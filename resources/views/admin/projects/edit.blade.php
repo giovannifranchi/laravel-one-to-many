@@ -29,6 +29,18 @@
                     @checked($project->image) value="1" name="set_image">
                 <label class="form-check-label" for="handle-image">Handle Image</label>
             </div>
+
+
+            <label for="types" class="form-label">Types</label>
+            <select class="form-select w-50" id="types" name="type_id">
+                <option @selected(!$project->type_id) >Select a Type</option>
+                @foreach ($types as $type)
+                <option value="{{$type->id}}" @selected($type->id == old('type_id', $project->type_id)) >{{$type->name}}</option>
+                @endforeach
+            </select>
+
+
+
             <div id="image-wrapper">
                 {{-- fill preview --}}
                 <div class="mb-3  @if(!$project->image) d-none @endif" id="file-wrapper">

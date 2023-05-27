@@ -15,6 +15,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Slug</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -24,6 +25,7 @@
                         <td>{{ $project->id }}</td>
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->slug }}</td>
+                        <td>{{$project->type?->name ? $project->type->name : 'unknown'}}</td>
                         <td class="d-flex gap-3">
                             <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info">Details</a>
                             <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-warning">Edit</a>
